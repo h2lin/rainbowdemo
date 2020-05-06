@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rainbowdemo-service-basic-user</artifactId>
+    <artifactId>rainbowdemo-service-basic-systemmana</artifactId>
 
     <dependencies>
         <dependency>
@@ -17,4 +17,5 @@
             <artifactId>rainbow-starter-web</artifactId>
         </dependency>
     </dependencies>
+
 </project>

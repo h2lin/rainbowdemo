@@ -12,13 +12,13 @@
         <module>rainbowdemo-common-config</module>
         <module>rainbowdemo-rpc-facade</module>
         <module>rainbowdemo-framework</module>
+        <module>rainbowdemo-service-basic-systemmana</module>
+        <module>rainbowdemo-service-biz-adapter3rd</module>
+        <module>rainbowdemo-service-biz-product</module>
+        <module>rainbowdemo-service-biz-order</module>
         <module>rainbowdemo-service-support-eureka</module>
         <module>rainbowdemo-service-support-gateway</module>
         <module>rainbowdemo-service-support-admin</module>
-        <module>rainbowdemo-service-biz-adapter3rd</module>
-        <module>rainbowdemo-service-basic-user</module>
-        <module>rainbowdemo-service-biz-product</module>
-        <module>rainbowdemo-service-biz-order</module>
     </modules>
 
     <properties>
