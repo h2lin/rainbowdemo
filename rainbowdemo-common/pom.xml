@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.rainbow</groupId>
+        <artifactId>rainbow</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.rainbowdemo</groupId>
+    <artifactId>rainbowdemo-common</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>rainbowdemo-common-framework</module>
+        <module>rainbowdemo-common-rpc-facade</module>
+    </modules>
+
+    <!-- 版本管理 -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- 私有 -->
+            <dependency>
+                <groupId>com.rainbowdemo</groupId>
+                <artifactId>rainbowdemo-common-framework</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.rainbowdemo</groupId>
+                <artifactId>rainbowdemo-common-rpc-facade</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- ============================================================= -->
+    <!--<repositories>
+        <repository>
+            <id>aliyun</id>
+            <name>aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+        </repository>
+    </repositories>-->
+
+    <!-- maven引用地址 -->
+<!--    <repositories>
+        &lt;!&ndash; 私服jar包地址 &ndash;&gt;
+        <repository>
+            <id>nexus-maven-central</id>
+            <url>http://192.168.xx.xx:8081/repository/nexus-maven-central/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus-maven-central</id>
+            <url>http://192.168.xx.xx:8081/repository/nexus-maven-central/</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </pluginRepository>
+    </pluginRepositories>-->
+
+    <!-- maven发布地址 -->
+    <!--<distributionManagement>
+        <repository>
+            <id>nexus-maven-releases</id>
+            <name>nexus-maven-releases</name>
+            <url>http://192.168.xx.xx:8081/repository/maven-releases/</url>
+        </repository>
+
+        <snapshotRepository>
+            <id>nexus-maven-snapshots</id>
+            <name>nexus-maven-snapshots</name>
+            <url>http://192.168.xx.xx:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>-->
+</project>

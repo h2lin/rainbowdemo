@@ -8,42 +8,15 @@
     <artifactId>rainbowdemo</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0</version>
+
     <modules>
-        <module>rainbowdemo-common-config</module>
-        <module>rainbowdemo-rpc-facade</module>
-        <module>rainbowdemo-framework</module>
+        <module>rainbowdemo-common</module>
         <module>rainbowdemo-service-basic-systemmana</module>
         <module>rainbowdemo-service-biz-adapter3rd</module>
         <module>rainbowdemo-service-biz-product</module>
         <module>rainbowdemo-service-biz-order</module>
+        <module>rainbowdemo-service-support-admin</module>
         <module>rainbowdemo-service-support-eureka</module>
         <module>rainbowdemo-service-support-gateway</module>
-        <module>rainbowdemo-service-support-admin</module>
     </modules>
-
-    <properties>
-        <rainbow>1.0.0</rainbow>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.rainbow</groupId>
-                <artifactId>rainbow</artifactId>
-                <version>${rainbow}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.rainbow</groupId>
-                <artifactId>rainbow-starter-web</artifactId>
-                <version>${rainbow}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <!--<dependencies>
-        <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
-        </dependency>
-    </dependencies>-->
 </project>
