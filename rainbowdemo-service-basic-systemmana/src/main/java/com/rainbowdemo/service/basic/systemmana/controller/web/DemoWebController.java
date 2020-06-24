@@ -1,6 +1,7 @@
 package com.rainbowdemo.service.basic.systemmana.controller.web;
 
-import org.springframework.stereotype.Controller;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,10 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/hello")
+@Slf4j
 public class DemoWebController {
-    @RequestMapping("/hi")
+
+    // 最简单的web服务器测试。前端访问接口，返回字符串。
+    @PostMapping("/hi")
     public String HelloBoot() {
         System.out.println("come in!");
+        log.info("--------------");
         return "Hi!";
     }
 }
