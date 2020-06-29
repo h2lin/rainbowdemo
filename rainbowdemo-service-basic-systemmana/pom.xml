@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.rainbowdemo</groupId>
-        <artifactId>rainbowdemo-common</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <artifactId>rainbowdemo</artifactId>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -20,9 +20,20 @@
 
         <dependency>
             <groupId>com.rainbow</groupId>
+            <artifactId>rainbow-common-pojo</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.rainbow</groupId>
             <artifactId>rainbow-starter-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.rainbow</groupId>
+            <artifactId>rainbow-starter-mybatis</artifactId>
+        </dependency>
+
+        <!-- 第三方jar包 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rainbowdemo.service.basic.systemmana.mapper.UserMapper">
+    <select id="selectUserNameByUserId"
+            resultType="java.lang.String">
+		select t.user_name from t_syst_user t where t.user_id=#{userId}
+	</select>
+</mapper>
