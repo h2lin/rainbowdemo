@@ -1,6 +1,7 @@
 package com.rainbowdemo.service.basic.systemmana.controller;
 
 import com.rainbow.common.pojo.dto.Req;
+import com.rainbowdemo.service.basic.systemmana.model.User;
 import com.rainbowdemo.service.basic.systemmana.service.DemoWebService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +32,17 @@ public class DemoWebController {
         return "Hi!";
     }
 
+    // [集成Mybatis]测试。使用mybatis访问DB数据。
     @PostMapping("/user_id/select/user_name")
     public String selectUserNameByUserId(@RequestBody Req<Long> req) {
         System.out.println(req.getBody());
         return demoWebService.selectUserNameByUserId(req);
+    }
+
+    // [集成tkMybatis]测试。使用mybatis访问DB数据。
+    @PostMapping("/user_id/select/one")
+    public User selectOneUserByUserId(@RequestBody Req<Long> req) {
+        System.out.println(req.getBody());
+        return demoWebService.selectOneUserByUserId(req);
     }
 }

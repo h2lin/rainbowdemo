@@ -2,7 +2,9 @@ package com.rainbowdemo.service.basic.systemmana.service;
 
 import com.rainbow.common.pojo.dto.Req;
 import com.rainbowdemo.service.basic.systemmana.mapper.UserMapper;
+import com.rainbowdemo.service.basic.systemmana.model.User;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
 
@@ -21,5 +23,11 @@ public class DemoWebService {
 
     public String selectUserNameByUserId(Req<Long> req) {
         return userMapper.selectUserNameByUserId(req.getBody());
+    }
+
+    public User selectOneUserByUserId(Req<Long> req) {
+        User user = new User();
+        user.setUserId(req.getBody());
+        return userMapper.selectOne(user);
     }
 }
