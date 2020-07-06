@@ -1,9 +1,16 @@
-spring:
-  datasource:
-    url: ${cdm_app_db_url:jdbc:mysql://rainbowdemo.com:33306/rbdm_syst?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
-    username: ${cdm_app_db_username:root}
-    password: ${cdm_app_db_password:123456}
-    # type=com.alibaba.druid.pool.DruidDataSource
-
-mybatis:
-  mapper-locations: classpath*:com/rainbowdemo/service/basic/systemmana/mapper/mybatis/**/*.xml
+rbow:
+  datasources:
+    systemmana:
+      jdbcurl: ${cdm_app_db_url:jdbc:mysql://rainbowdemo.com:33306/rbdm_syst?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+      username: ${cdm_app_db_username:root}
+      password: ${cdm_app_db_password:123456}
+      mapper-interface-location: com.rainbowdemo.service.basic.systemmana.mapper
+      mapper-xml-location: classpath*:com/rainbowdemo/service/basic/systemmana/mapper/mybatis/**/*.xml
+#      transaction-base-packages: asd
+    systemmana_bk: # 备份数据源，用于测试多数据源注入
+      jdbcurl: ${cdm_app_db_url:jdbc:mysql://rainbowdemo.com:33306/rbdm_syst_ds2bk?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+      username: ${cdm_app_db_username:root}
+      password: ${cdm_app_db_password:123456}
+      mapper-interface-location: com.rainbowdemo.service.basic.systemmana.mapperbk
+      mapper-xml-location: classpath*:com/rainbowdemo/service/basic/systemmana/mapperbk/mybatis/**/*.xml
+#      transaction-base-packages: asd

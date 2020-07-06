@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Desc 样例Demo。
@@ -20,6 +22,8 @@ import javax.annotation.Resource;
 public class DemoWebService {
     @Resource
     private UserMapper userMapper;
+    @Resource
+    private com.rainbowdemo.service.basic.systemmana.mapperbk.UserMapper userMapperBk;
 
     public String selectUserNameByUserId(Req<Long> req) {
         return userMapper.selectUserNameByUserId(req.getBody());
@@ -28,6 +32,19 @@ public class DemoWebService {
     public User selectOneUserByUserId(Req<Long> req) {
         User user = new User();
         user.setUserId(req.getBody());
+
         return userMapper.selectOne(user);
+    }
+
+    public List<User> selectMultiDatasource(Req<String> req) {
+        User user = new User();
+        user.setUserName(req.getBody());
+
+        // 同一个入参，到两个数据源查询，最后汇总结果返回
+        List<User> list = new ArrayList<>();
+        list.add(userMapper.selectOne(user));
+        list.add(userMapperBk.selectOne(user));
+
+        return list;
     }
 }

@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @Desc 样例Demo。
@@ -45,4 +46,14 @@ public class DemoWebController {
         System.out.println(req.getBody());
         return demoWebService.selectOneUserByUserId(req);
     }
+
+    // [集成多数据源+自定义配置+自动配置]测试。使用mybatis同时访问两个数据源的数据。
+    // 注意数据源之间的事务操作问题
+    @PostMapping("/user_name/select/multi-datasource")
+    public List<User> selectMultiDatasource(@RequestBody Req<String> req) {
+        System.out.println(req.getBody());
+        return demoWebService.selectMultiDatasource(req);
+    }
+
+
 }
