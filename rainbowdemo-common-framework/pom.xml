@@ -11,5 +11,15 @@
 
     <artifactId>rainbowdemo-common-framework</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+        </dependency>
 
+        <dependency>
+            <groupId>com.rainbow</groupId>
+            <artifactId>rainbow-common-pojo</artifactId>
+        </dependency>
+    </dependencies>
 </project>

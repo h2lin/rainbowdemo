@@ -5,4 +5,8 @@
             resultType="java.lang.String">
 		select t.user_name from t_syst_user t where t.user_id=#{userId}
 	</select>
+
+    <select id="pageAll" resultType="com.rainbowdemo.service.basic.systemmana.model.User">
+        select * from t_syst_user
+    </select>
 </mapper>

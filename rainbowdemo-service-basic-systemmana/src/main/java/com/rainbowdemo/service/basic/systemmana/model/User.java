@@ -1,6 +1,8 @@
 package com.rainbowdemo.service.basic.systemmana.model;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
@@ -11,7 +13,8 @@ import javax.persistence.Table;
  * @Author wuzh
  * @Date 2020/6/29
  */
-@Data
+@Getter
+@Setter
 @Table(name = "t_syst_user")  // 用于tkMybatis
 public class User {
 //    @Id

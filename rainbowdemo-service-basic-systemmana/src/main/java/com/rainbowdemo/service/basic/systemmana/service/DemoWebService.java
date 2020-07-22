@@ -1,8 +1,13 @@
 package com.rainbowdemo.service.basic.systemmana.service;
 
+import com.alibaba.fastjson.JSON;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.rainbow.common.pojo.dto.Req;
 import com.rainbowdemo.service.basic.systemmana.mapper.UserMapper;
 import com.rainbowdemo.service.basic.systemmana.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -19,6 +24,7 @@ import java.util.List;
  * @Date 2020/6/28
  */
 @Service
+@Slf4j
 public class DemoWebService {
     @Resource
     private UserMapper userMapper;
@@ -46,5 +52,18 @@ public class DemoWebService {
         list.add(userMapperBk.selectOne(user));
 
         return list;
+    }
+
+    public Page<User> pageUser() {
+        PageHelper.startPage(2,2);
+        Page<User> page = userMapper.pageAll();
+
+        log.info("Datas: "+JSON.toJSONString(page.getResult()));
+        log.info("PageCount: "+page.getPages()+"");
+        log.info("PageIndex: " +page.getPageNum()+"");
+        log.info("PageSize: "+page.getPageSize()+"");
+        log.info("TotalCount: "+page.getTotal()+"");
+
+        return page;
     }
 }

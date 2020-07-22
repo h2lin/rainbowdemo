@@ -1,6 +1,11 @@
 package com.rainbowdemo.service.basic.systemmana.controller;
 
+import com.github.pagehelper.Page;
 import com.rainbow.common.pojo.dto.Req;
+import com.rainbow.common.pojo.dto.ReqPageBody;
+import com.rainbow.common.pojo.dto.Resp;
+import com.rainbow.common.pojo.dto.RespPageBody;
+import com.rainbowdemo.common.framework.util.RespUtil;
 import com.rainbowdemo.service.basic.systemmana.model.User;
 import com.rainbowdemo.service.basic.systemmana.service.DemoWebService;
 import lombok.extern.slf4j.Slf4j;
@@ -55,5 +60,9 @@ public class DemoWebController {
         return demoWebService.selectMultiDatasource(req);
     }
 
-
+    // [集成PageHelper测试]
+    @PostMapping("/page/user")
+    public Resp<RespPageBody<User>> pageUser() {
+        return RespUtil.success(RespUtil.tranPageData(demoWebService.pageUser()));
+    }
 }

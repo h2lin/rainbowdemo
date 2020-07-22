@@ -12,6 +12,11 @@
     <artifactId>rainbowdemo-service-basic-systemmana</artifactId>
 
     <dependencies>
+        <!-- 本地包 -->
+        <dependency>
+            <groupId>com.rainbowdemo</groupId>
+            <artifactId>rainbowdemo-common-framework</artifactId>
+        </dependency>
         <!-- 第二方jar包 -->
         <dependency>
             <groupId>com.rainbow</groupId>
