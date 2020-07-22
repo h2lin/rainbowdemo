@@ -60,7 +60,7 @@ public class DemoWebController {
         return demoWebService.selectMultiDatasource(req);
     }
 
-    // [集成PageHelper测试]
+    // [集成PageHelper]测试 + [集成自定义日志插件]测试
     @PostMapping("/page/user")
     public Resp<RespPageBody<User>> pageUser() {
         return RespUtil.success(RespUtil.tranPageData(demoWebService.pageUser()));
