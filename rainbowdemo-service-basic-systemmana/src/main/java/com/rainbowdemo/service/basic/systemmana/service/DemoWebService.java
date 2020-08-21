@@ -8,7 +8,11 @@ import com.rainbow.common.pojo.dto.Req;
 import com.rainbowdemo.service.basic.systemmana.mapper.UserMapper;
 import com.rainbowdemo.service.basic.systemmana.model.User;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+import org.springframework.util.Assert;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.annotation.Resource;
@@ -65,5 +69,52 @@ public class DemoWebService {
         log.info("TotalCount: "+page.getTotal()+"");
 
         return page;
+    }
+
+    @Transactional
+    public void transactionUser() {
+        long userId = 10001L;
+
+        // 1.原始值
+
+        User beforeUser = userMapper.selectByPrimaryKey(userId);
+        log.info("======= before: {}",JSON.toJSONString(beforeUser));
+
+
+        // 2.更新参数
+        User updateUser = new User();
+        String updateRemark = RandomUtils.nextInt()+"";
+        updateUser.setUserId(userId);
+        updateUser.setRemark(updateRemark);
+        try{
+            this.updateUserTransactionTest(updateUser);
+        } catch (Throwable e) {
+            // 如要做异常处理，则需要再次手动抛出异常。或手动进行回滚，如下。
+            log.info("======= 异常已被catch");
+            TransactionAspectSupport.currentTransactionStatus().setRollbackOnly();
+        }
+
+        // 3.更新后
+        User afterUser = userMapper.selectByPrimaryKey(userId);
+        log.info("======= after: {}",JSON.toJSONString(afterUser));
+        // Assert.isTrue(updateRemark.equals(afterUser.getRemark()), "error");
+    }
+
+
+    private void updateUserTransactionTest(User updateUser) {
+        log.info("======= update");
+        userMapper.updateByPrimaryKeySelective(updateUser);
+
+        throw new RuntimeException("随机错误抛出！");
+
+        // 随机错误
+//        if (RandomUtils.nextInt() % 2 == 0) {
+//            try {
+//                User afterUser = userMapper.selectByPrimaryKey(updateUser.getUserId());
+//            } finally {
+//
+//                log.info("=== 更新失败");
+//            }
+//        }
     }
 }

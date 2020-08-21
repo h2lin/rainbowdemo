@@ -17,8 +17,8 @@ import javax.persistence.Table;
 @Setter
 @Table(name = "t_syst_user")  // 用于tkMybatis
 public class User {
-//    @Id
 //    @Column(name = "user_id")
+    @Id
     private Long userId;
 
 //    @Column(name = "user_name")

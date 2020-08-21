@@ -65,4 +65,10 @@ public class DemoWebController {
     public Resp<RespPageBody<User>> pageUser() {
         return RespUtil.success(RespUtil.tranPageData(demoWebService.pageUser()));
     }
+
+    // [集成Mybatis + 事务]测试
+    @PostMapping("/transaction/user")
+    public void transactionUser() {
+        demoWebService.transactionUser();
+    }
 }
