@@ -38,6 +38,11 @@
             <artifactId>rainbow-starter-mybatis</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.rainbow</groupId>
+            <artifactId>rainbow-starter-test</artifactId>
+        </dependency>
+
         <!-- 第三方jar包 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
